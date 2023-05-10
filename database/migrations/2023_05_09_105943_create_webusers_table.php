@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('webusers', function (Blueprint $table) {
+        Schema::create('Users', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('fullname', 255)->notNullable();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('webusers');
+        Schema::dropIfExists('Users');
     }
 };
