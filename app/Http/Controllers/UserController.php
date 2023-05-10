@@ -12,8 +12,8 @@ class UserController extends Controller
         // Validate the form data
         $validatedData = $request->validate([
             'fullname' => 'required|max:255',
-            'username' => 'required|unique:webusers|max:255',
-            'email' => 'required|unique:webusers|email|max:255',
+            'username' => 'required|unique:users|max:255',
+            'email' => 'required|unique:users|email|max:255',
             'password' => 'required|max:255',
         ]);
 
