@@ -14,13 +14,8 @@ class UserController extends Controller
     {
         // dd($request->all());
         // Validate the form data
-<<<<<<< HEAD
         $validatedData = $request->validate([
-            'fullname' => 'required|max:255',
-=======
-        $request->validate([
             'name' => 'required|max:255',
->>>>>>> 3ee867ab7885bb1a9600609d9b785ebc75a23b7d
             'username' => 'required|unique:users|max:255',
             'email' => 'required|unique:users|email|max:255',
             'password' => 'required|max:255',
@@ -33,7 +28,6 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
         if ($user) {
             // Log the user in
             auth()->login($user);
