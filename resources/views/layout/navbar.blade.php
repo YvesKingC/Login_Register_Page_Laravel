@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Home Page</title>
-<link rel="stylesheet" href="{{ mix('resources/css/app.css') }}">
+<link rel="stylesheet" href="{{ @vite('resources/css/app.css') }}">
 <script>
     document.getElementById("btn-home").addEventListener("click", function() {
       window.location.href = "{{ route('home') }}";

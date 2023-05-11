@@ -35,4 +35,25 @@ class UserController extends Controller
             return redirect()->route('home');
         }
     }
+    public function login(Request $request)
+{
+    // Validate the form data
+    $validatedData = $request->validate([
+        'login' => 'required',
+        'password' => 'required'
+    ]);
+
+    // Check if the user is logging in with their email or username
+    $field = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+    // Attempt to log the user in
+    if (Auth::attempt([$field => $request->login, 'password' => $request->password])) {
+        // If successful, redirect to the intended location
+        return redirect()->intended(route('home'));
+    } else {
+        // If unsuccessful, redirect back to the login with form data
+        return redirect()->back()->withInput($request->only('login'));
+    }
+}
+
 }
