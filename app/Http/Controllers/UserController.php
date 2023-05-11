@@ -39,9 +39,9 @@ class UserController extends Controller
 {
     // Validate the form data
     $validatedData = $request->validate([
-        'login' => 'required',
+        'username' => 'required',
         'password' => 'required'
-    ]);
+       ]);
 
     // Check if the user is logging in with their email or username
     $field = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
@@ -52,7 +52,7 @@ class UserController extends Controller
         return redirect()->intended(route('home'));
     } else {
         // If unsuccessful, redirect back to the login with form data
-        return redirect()->back()->withInput($request->only('login'));
+        return redirect()->back()->withInput($request->only('Login'));
     }
 }
 

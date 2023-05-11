@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::view('/', 'HomePage')->name('home');
 Route::view('/Login', 'LoginPage')->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/Login', [AuthController::class, 'login'])->name('login.submit');
 Route::view('/Register', 'RegisterPage')->name('register');
 Route::post('/Register', [UserController::class, 'register'])->name('register');
